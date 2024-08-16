@@ -2,7 +2,7 @@ export CUDA_VISIBLE_DEVICES=0
 
 model_name=Hier_S_Mamba
 
-python -u run.py \
+srun python -u run.py \
   --is_training 1 \
   --root_path ./dataset/exchange_rate/ \
   --data_path exchange_rate.csv \
@@ -23,7 +23,7 @@ python -u run.py \
   --d_ff 128 \
   --itr 1
 
-python -u run.py \
+srun python -u run.py \
   --is_training 1 \
   --root_path ./dataset/exchange_rate/ \
   --data_path exchange_rate.csv \
@@ -43,7 +43,7 @@ python -u run.py \
   --d_ff 128 \
   --itr 1
 
-python -u run.py \
+srun python -u run.py \
   --is_training 1 \
   --root_path ./dataset/exchange_rate/ \
   --data_path exchange_rate.csv \
@@ -63,7 +63,7 @@ python -u run.py \
   --learning_rate 0.00005 \
   --d_ff 128 \
 
-python -u run.py \
+srun python -u run.py \
   --is_training 1 \
   --root_path ./dataset/exchange_rate/ \
   --data_path exchange_rate.csv \

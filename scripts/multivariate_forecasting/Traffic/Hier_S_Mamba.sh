@@ -2,7 +2,7 @@ export CUDA_VISIBLE_DEVICES=0
 
 model_name=Hier_S_Mamba
 
-python -u run.py \
+srun python -u run.py \
   --is_training 1 \
   --root_path ./dataset/traffic/ \
   --data_path traffic.csv \
@@ -23,7 +23,7 @@ python -u run.py \
   --learning_rate 0.001 \
   --itr 1
 
-python -u run.py \
+srun python -u run.py \
   --is_training 1 \
   --root_path ./dataset/traffic/ \
   --data_path traffic.csv \
@@ -44,7 +44,7 @@ python -u run.py \
   --learning_rate 0.001 \
   --itr 1
 
-python -u run.py \
+srun python -u run.py \
   --is_training 1 \
   --root_path ./dataset/traffic/ \
   --data_path traffic.csv \
@@ -65,7 +65,7 @@ python -u run.py \
   --learning_rate 0.002 \
   --itr 1
 
-python -u run.py \
+srun python -u run.py \
   --is_training 1 \
   --root_path ./dataset/traffic/ \
   --data_path traffic.csv \

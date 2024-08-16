@@ -2,7 +2,7 @@ export CUDA_VISIBLE_DEVICES=0
 
 model_name=Hier_S_Mamba
 # d state 2
-python -u run.py \
+srun python -u run.py \
   --is_training 1 \
   --root_path ./dataset/ETT-small/ \
   --data_path ETTm2.csv \
@@ -23,7 +23,7 @@ python -u run.py \
   --learning_rate 0.00005 \
   --itr 1
 
-python -u run.py \
+srun python -u run.py \
   --is_training 1 \
   --root_path ./dataset/ETT-small/ \
   --data_path ETTm2.csv \
@@ -44,7 +44,7 @@ python -u run.py \
   --d_ff 128 \
   --itr 1
 
-python -u run.py \
+srun python -u run.py \
   --is_training 1 \
   --root_path ./dataset/ETT-small/ \
   --data_path ETTm2.csv \
@@ -65,7 +65,7 @@ python -u run.py \
   --d_ff 128 \
   --itr 1
 
-python -u run.py \
+srun python -u run.py \
   --is_training 1 \
   --root_path ./dataset/ETT-small/ \
   --data_path ETTm2.csv \

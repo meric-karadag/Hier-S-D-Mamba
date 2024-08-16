@@ -2,7 +2,7 @@ export CUDA_VISIBLE_DEVICES=0
 
 model_name=S_Mamba
 
-python -u run.py \
+srun python -u run.py \
   --is_training 1 \
   --root_path ./dataset/Solar/ \
   --data_path solar_AL.txt \
@@ -21,7 +21,7 @@ python -u run.py \
   --d_ff 512 \
   --itr 1
 
-python -u run.py \
+srun python -u run.py \
   --is_training 1 \
   --root_path ./dataset/Solar/ \
   --data_path solar_AL.txt \
@@ -40,7 +40,7 @@ python -u run.py \
   --d_ff 512 \
   --itr 1
 
-python -u run.py \
+srun python -u run.py \
   --is_training 1 \
   --root_path ./dataset/Solar/ \
   --data_path solar_AL.txt \
@@ -59,7 +59,7 @@ python -u run.py \
   --d_ff 512 \
   --itr 1
 
-python -u run.py \
+srun python -u run.py \
   --is_training 1 \
   --root_path ./dataset/Solar/ \
   --data_path solar_AL.txt \

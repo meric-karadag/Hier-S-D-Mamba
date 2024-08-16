@@ -2,7 +2,7 @@ export CUDA_VISIBLE_DEVICES=0
 
 model_name=S_Mamba
 
-python -u run.py \
+srun python -u run.py \
   --is_training 1 \
   --root_path ./dataset/PEMS/ \
   --data_path PEMS08.npz \
@@ -23,7 +23,7 @@ python -u run.py \
   --learning_rate 0.001 \
   --use_norm 1
 
-python -u run.py \
+srun python -u run.py \
   --is_training 1 \
   --root_path ./dataset/PEMS/ \
   --data_path PEMS08.npz \
@@ -44,7 +44,7 @@ python -u run.py \
   --itr 1 \
   --use_norm 1
 
-python -u run.py \
+srun python -u run.py \
   --is_training 1 \
   --root_path ./dataset/PEMS/ \
   --data_path PEMS08.npz \
@@ -66,7 +66,7 @@ python -u run.py \
   --itr 1 \
   --use_norm 1
 
-python -u run.py \
+srun python -u run.py \
   --is_training 1 \
   --root_path ./dataset/PEMS/ \
   --data_path PEMS08.npz \

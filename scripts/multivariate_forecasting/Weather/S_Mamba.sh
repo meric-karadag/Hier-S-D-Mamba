@@ -2,7 +2,7 @@ export CUDA_VISIBLE_DEVICES=0
 
 model_name=S_Mamba
 
-python -u run.py \
+srun python -u run.py \
   --is_training 1 \
   --root_path ./dataset/weather/ \
   --data_path weather.csv \
@@ -25,7 +25,7 @@ python -u run.py \
   --itr 1
 
 
-python -u run.py \
+srun python -u run.py \
   --is_training 1 \
   --root_path ./dataset/weather/ \
   --data_path weather.csv \
@@ -48,7 +48,7 @@ python -u run.py \
   --itr 1
 
 
-python -u run.py \
+srun python -u run.py \
   --is_training 1 \
   --root_path ./dataset/weather/ \
   --data_path weather.csv \
@@ -71,7 +71,7 @@ python -u run.py \
   --itr 1
 
 
-python -u run.py \
+srun python -u run.py \
   --is_training 1 \
   --root_path ./dataset/weather/ \
   --data_path weather.csv \

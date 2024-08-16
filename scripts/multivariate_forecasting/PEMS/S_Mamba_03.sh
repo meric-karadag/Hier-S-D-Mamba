@@ -2,7 +2,7 @@ export CUDA_VISIBLE_DEVICES=0
 
 model_name=S_Mamba
 # d_state = 32
-python -u run.py \
+srun python -u run.py \
   --is_training 1 \
   --root_path ./dataset/PEMS/ \
   --data_path PEMS03.npz \
@@ -23,7 +23,7 @@ python -u run.py \
   --train_epochs 5 \
   --itr 1
 
-python -u run.py \
+srun python -u run.py \
   --is_training 1 \
   --root_path ./dataset/PEMS/ \
   --data_path PEMS03.npz \
@@ -44,7 +44,7 @@ python -u run.py \
   --itr 1
 
 
-python -u run.py \
+srun python -u run.py \
   --is_training 1 \
   --root_path ./dataset/PEMS/ \
   --data_path PEMS03.npz \
@@ -65,7 +65,7 @@ python -u run.py \
   --itr 1
 
 
-python -u run.py \
+srun python -u run.py \
   --is_training 1 \
   --root_path ./dataset/PEMS/ \
   --data_path PEMS03.npz \

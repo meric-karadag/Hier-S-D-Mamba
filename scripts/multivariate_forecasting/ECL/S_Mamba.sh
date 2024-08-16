@@ -1,7 +1,7 @@
 export CUDA_VISIBLE_DEVICES=0
 
 model_name=S_Mamba
-python -u run.py \
+srun python -u run.py \
   --is_training 1 \
   --root_path ./dataset/electricity/ \
   --data_path electricity.csv \
@@ -23,7 +23,7 @@ python -u run.py \
   --batch_size 16 \
   --learning_rate 0.001 \
   --itr 1
-python -u run.py \
+srun python -u run.py \
   --is_training 1 \
   --root_path ./dataset/electricity/ \
   --data_path electricity.csv \
@@ -44,7 +44,7 @@ python -u run.py \
   --train_epochs 5 \
   --learning_rate 0.0005 \
   --itr 1
-  python -u run.py \
+srun  python -u run.py \
   --is_training 1 \
   --root_path ./dataset/electricity/ \
   --data_path electricity.csv \
@@ -65,7 +65,7 @@ python -u run.py \
   --train_epochs 5 \
   --learning_rate 0.0005 \
   --itr 1
-  python -u run.py \
+srun  python -u run.py \
   --is_training 1 \
   --root_path ./dataset/electricity/ \
   --data_path electricity.csv \
