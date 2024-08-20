@@ -11,13 +11,15 @@ import os
 import time
 import warnings
 import numpy as np
-
+import wandb
 warnings.filterwarnings('ignore')
 
 
 class Exp_Long_Term_Forecast(Exp_Basic):
     def __init__(self, args):
         super(Exp_Long_Term_Forecast, self).__init__(args)
+        wandb.init(project="Hier-S-D-Mamba", name=args.data + '_' + args.model + '_long_term_forecast')
+        wandb.config.update(vars(args))
 
     def _build_model(self):
         model = self.model_dict[self.args.model].Model(self.args).float()
@@ -147,6 +149,7 @@ class Exp_Long_Term_Forecast(Exp_Basic):
                     outputs = outputs[:, -self.args.pred_len:, f_dim:]
                     batch_y = batch_y[:, -self.args.pred_len:, f_dim:].to(self.device)
                     loss = criterion(outputs, batch_y)
+                    wandb.log({'Loss/train_batch': loss})
                     train_loss.append(loss.item())
 
                 if (i + 1) % 100 == 0:
@@ -174,8 +177,11 @@ class Exp_Long_Term_Forecast(Exp_Basic):
 
             print("Epoch: {} cost time: {}".format(epoch + 1, time.time() - epoch_time))
             train_loss = np.average(train_loss)
+            wandb.log({'Loss/train': train_loss})
             vali_loss = self.vali(vali_data, vali_loader, criterion)
+            wandb.log({'Loss/val': vali_loss})
             test_loss = self.vali(test_data, test_loader, criterion)
+            wandb.log({'Loss/test': test_loss})
 
             print("Epoch: {0}, Steps: {1} | Train Loss: {2:.7f} Vali Loss: {3:.7f} Test Loss: {4:.7f}".format(
                 epoch + 1, train_steps, train_loss, vali_loss, test_loss))
@@ -290,6 +296,15 @@ class Exp_Long_Term_Forecast(Exp_Basic):
         f.write('\n')
         f.write('\n')
         f.close()
+
+        wandb.log(
+            {
+                'MSE/test': mse,
+                'MAE/test': mae,
+                'RMSE/test': rmse,
+                'MAPE/test': mape,
+                'MSPE/test': mspe
+            })
 
         np.save(folder_path + 'metrics.npy', np.array([mae, mse, rmse, mape, mspe]))
         np.save(folder_path + 'pred.npy', preds)
